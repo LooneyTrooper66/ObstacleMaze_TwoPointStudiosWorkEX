@@ -642,7 +642,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Regenerate
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -902,17 +902,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camTransform: {fileID: 2015249934}
+  pooler: {fileID: 1940993226}
   type: 0
-  mazePieces:
-  - {fileID: 5151232293517832062, guid: 6c677646a478fa242ae84ec501001829, type: 3}
-  - {fileID: 3271467417890648385, guid: 0d076944f9f20c048908ae05cc298707, type: 3}
-  - {fileID: 5627635594105929381, guid: 9c82df384d64f374789d47784a239931, type: 3}
-  - {fileID: 4600267486771389351, guid: 3cd32cb72bcf0ed4587601e872c45dc3, type: 3}
-  - {fileID: 4059982649423594420, guid: 80695051b5161d34fb6c1e449a8c8f70, type: 3}
-  - {fileID: 7400482720049816822, guid: 9736740f9df6e0f4fa504f9a401f72a4, type: 3}
-  heightPieces:
-  - {fileID: 8728105379528135814, guid: f6d52e1f4fbb3164aba65855b6be4681, type: 3}
-  piecesToUse: []
+  piecesToUse: 
   waitSeconds: 0
   mapSizeX: 0
   mapSizeY: 0
@@ -1181,16 +1173,13 @@ MonoBehaviour:
     - m_Text: HeightMap
       m_Image: {fileID: 0}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
-    - m_Text: Option C
-      m_Image: {fileID: 0}
-      m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1138941659}
         m_TargetAssemblyTypeName: ProcGenUIManager, Assembly-CSharp
         m_MethodName: ChangeMapType
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1617,7 +1606,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &902792875
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1873,7 +1862,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -18, y: 0}
+  m_SizeDelta: {x: -17, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &962132167
 MonoBehaviour:
@@ -2127,7 +2116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gen: {fileID: 605452803}
-  chooseMapType: {fileID: 0}
+  chooseMapType: {fileID: 770080988}
   regenerateMap: {fileID: 81643394}
   rotateOnOff: {fileID: 902792876}
   mapSizeXSlider: {fileID: 1193932255}
@@ -2297,9 +2286,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1527868278}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 15
+  m_MaxValue: 10
   m_WholeNumbers: 1
-  m_Value: 2
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2647,9 +2636,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 760782948}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 5
-  m_WholeNumbers: 0
-  m_Value: 0.2
+  m_MaxValue: 10
+  m_WholeNumbers: 1
+  m_Value: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2917,7 +2906,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4281479730
   m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -2930,7 +2919,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -3252,7 +3241,7 @@ RectTransform:
   m_Father: {fileID: 1202287565}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.2}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3470,14 +3459,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772213869}
   m_Enabled: 1
-  serializedVersion: 11
+  serializedVersion: 12
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
+  m_CookieSize2D: {x: 10, y: 10}
   m_Shadows:
     m_Type: 2
     m_Resolution: -1
@@ -3776,16 +3765,11 @@ MonoBehaviour:
   - tag: cubePool
     prefabs:
     - {fileID: 8728105379528135814, guid: f6d52e1f4fbb3164aba65855b6be4681, type: 3}
-    size: 50
+    size: 100
   - tag: mazePool
     prefabs:
-    - {fileID: 5151232293517832062, guid: 6c677646a478fa242ae84ec501001829, type: 3}
-    - {fileID: 3271467417890648385, guid: 0d076944f9f20c048908ae05cc298707, type: 3}
-    - {fileID: 5627635594105929381, guid: 9c82df384d64f374789d47784a239931, type: 3}
-    - {fileID: 4600267486771389351, guid: 3cd32cb72bcf0ed4587601e872c45dc3, type: 3}
-    - {fileID: 4059982649423594420, guid: 80695051b5161d34fb6c1e449a8c8f70, type: 3}
-    - {fileID: 7400482720049816822, guid: 9736740f9df6e0f4fa504f9a401f72a4, type: 3}
-    size: 5
+    - {fileID: 6373961970846931593, guid: 9a3e03c3745cb5f48b1af6a5d30d45e5, type: 3}
+    size: 100
 --- !u!1 &1974292608
 GameObject:
   m_ObjectHideFlags: 0
@@ -3870,9 +3854,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 506816127}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 15
+  m_MaxValue: 10
   m_WholeNumbers: 1
-  m_Value: 2
+  m_Value: 4
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -3974,7 +3958,7 @@ Transform:
   m_GameObject: {fileID: 2015249931}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 0, y: 60, z: -60}
+  m_LocalPosition: {x: 0, y: 60, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4100,9 +4084,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 809917621}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 15
+  m_MaxValue: 10
   m_WholeNumbers: 1
-  m_Value: 2
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -4279,8 +4263,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1604506566}
   m_HandleRect: {fileID: 1604506565}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 0.2
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

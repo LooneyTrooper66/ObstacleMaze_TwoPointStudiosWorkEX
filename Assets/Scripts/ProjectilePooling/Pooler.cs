@@ -32,7 +32,6 @@ public class Pooler : MonoBehaviour
                     objectPool.Enqueue(obj);
                 }
             }
-
 			poolDictionary.Add(pool.tag, objectPool);
 		}
     }
@@ -60,6 +59,7 @@ public class Pooler : MonoBehaviour
         return objToSpawn;
     }
 
+    #region not finished, not currently working
     GameObject ReturnRandomPoolObject(string tag)
     {
         int objsInPool = poolDictionary[tag].Count;
@@ -101,6 +101,7 @@ public class Pooler : MonoBehaviour
             return nextAvailable;
         }*/
     }
+    #endregion
 
     public GameObject SpawnFromPool(string tag, Vector3 pos, Quaternion rot)
     {

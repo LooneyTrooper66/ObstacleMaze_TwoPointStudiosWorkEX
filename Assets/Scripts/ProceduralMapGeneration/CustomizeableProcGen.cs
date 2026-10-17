@@ -11,19 +11,13 @@ public class CustomizeableProcGen : MonoBehaviour
 	[Header("Main Variables")]
 	[SerializeField] Transform camTransform;
     [SerializeField] Pooler pooler;
-	public enum MapType
-	{
-		maze,
-		height
-	}
-	public MapType type;
 
     public string piecesToUse;
-	public float waitSeconds;
 
 	public int mapSizeX;
 	public int mapSizeY;
-	public int gridOffset;
+	public float gridOffset;
+    public float waitSeconds;
     public bool rotateMap;
 
     List<GameObject> currentMapBits = new List<GameObject>();
@@ -33,7 +27,7 @@ public class CustomizeableProcGen : MonoBehaviour
     {
         SetMazeDefaults();
 		MoveCamera(); // need to move camera so will frame whole map before map generation starts
-        StartCoroutine(GenerateMap());
+        //StartCoroutine(GenerateMap());
     }
 
 	void Update()
@@ -46,6 +40,7 @@ public class CustomizeableProcGen : MonoBehaviour
 
     IEnumerator GenerateMap()
 	{
+
         for (int x = 0; x < mapSizeX; x++)
         {
             for (int z = 0; z < mapSizeY; z++)
@@ -53,26 +48,25 @@ public class CustomizeableProcGen : MonoBehaviour
                 Vector3 pos = new Vector3(x * gridOffset, 0, z * gridOffset);
                 GameObject mapPiece = pooler.SpawnFromPool(piecesToUse, pos, Quaternion.identity);
                 mapPiece.transform.SetParent(transform);
+                currentMapBits.Add(mapPiece);
                 yield return new WaitForSeconds(waitSeconds);
             }
         }
     }
 	public void SetMazeDefaults()
 	{
-		type = MapType.maze;
         piecesToUse = "mazePool";
-		mapSizeX = 2;
-		mapSizeY = 2;
-		gridOffset = 20;
+		mapSizeX = 5;
+		mapSizeY = 5;
+		gridOffset = 4;
 		waitSeconds = 0.2f;
 		rotateMap = false;
     }
     public void SetHeightDefaults()
     {
-        type = MapType.height;
         piecesToUse = "cubePool";
-        mapSizeX = 10;
-        mapSizeY = 10;
+        mapSizeX = 5;
+        mapSizeY = 5;
         gridOffset = 1;
         waitSeconds = 0.2f;
         rotateMap = false;
@@ -85,13 +79,20 @@ public class CustomizeableProcGen : MonoBehaviour
 
     void ClearCurrentMap()
     {
-
+        for (int i = currentMapBits.Count - 1; i >= 0; i--)
+        {
+            GameObject toDeactivate = currentMapBits[i];
+            currentMapBits.RemoveAt(i);
+            toDeactivate.transform.SetParent(null);
+            toDeactivate.SetActive(false);
+        }
     }
 
     public void RegenerateMapButton()
     {
-        MoveCamera(); 
+        StopCoroutine(GenerateMap());
         ClearCurrentMap();
+        MoveCamera();
         StartCoroutine(GenerateMap());
     }
 }

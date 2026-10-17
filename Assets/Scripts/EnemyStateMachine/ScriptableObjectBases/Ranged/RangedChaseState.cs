@@ -43,7 +43,7 @@ public class RangedChaseState : ChaseStateSOBase
         if (Vector3.Distance(aggroCheck.player.position, gameObject.transform.position) <= stopDistance)
         {
             agent.stoppingDistance = stopDistance;
-            Vector3 lookAtPos = new Vector3(aggroCheck.player.position.x, 1f, aggroCheck.player.position.z);
+            Vector3 lookAtPos = new Vector3(aggroCheck.player.position.x, 1.2f, aggroCheck.player.position.z);
             gameObject.transform.LookAt(lookAtPos);
         }
         else agent.stoppingDistance = 1;
