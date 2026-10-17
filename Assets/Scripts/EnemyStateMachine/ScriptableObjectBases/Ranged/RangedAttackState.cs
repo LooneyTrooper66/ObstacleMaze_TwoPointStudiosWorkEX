@@ -23,7 +23,7 @@ public class RangedAttackState : AttackStateSOBase
     {
         base.DoEnterLogic();
         GameObject projectile = pooler.SpawnFromPool(poolTag, aggroCheck.shootPoint.transform.position, aggroCheck.shootPoint.transform.rotation);
-        projectile.GetComponent<Rigidbody>().AddForce(aggroCheck.shootPoint.forward * projectileForce, ForceMode.Impulse); // sometimes shooting sideways or backwards, need to fix
+        projectile.GetComponent<Rigidbody>().AddForce(aggroCheck.shootPoint.forward * projectileForce, ForceMode.Impulse); 
         enemyBase.stateManager.ChangeState(enemyBase.chaseState);
     }
     public override void DoUpdateLogic()

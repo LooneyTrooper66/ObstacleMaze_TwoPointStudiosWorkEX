@@ -12,7 +12,6 @@ public class MapGenerator : MonoBehaviour
 	[SerializeField] int mapSizeY;
     [Tooltip("how big the space between each tile should be")]
 	[SerializeField] float mapGenOffset;
-    public bool regenerateMap = false;
 	[SerializeField] GameObject[] mapPrefabs; // if expanded to remove walls and added in walls after generation could improve map quality/size
     public List<Renderer> mapFloors = new List<Renderer>();
     NavMeshSurface[] surfaces;
@@ -61,7 +60,7 @@ public class MapGenerator : MonoBehaviour
                 }
             }
         }
-        GenerateNavmesh();
+        GenerateNavmesh(); 
         // have place start/finish tile here,
         // not using for now as is only 4 big and therefore can just place manually
         SpawnEnemies();

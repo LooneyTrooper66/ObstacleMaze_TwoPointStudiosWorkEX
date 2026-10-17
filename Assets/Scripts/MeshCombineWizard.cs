@@ -112,8 +112,8 @@ public class MeshCombineWizard : ScriptableWizard
 		}
 
 		// Create prefab
-		Object prefab = PrefabUtility.CreateEmptyPrefab("Assets/" + resultGO.name + ".prefab");
-		PrefabUtility.ReplacePrefab(resultGO, prefab, ReplacePrefabOptions.ConnectToPrefab);
+		/*Object prefab = PrefabUtility.CreateEmptyPrefab("Assets/" + resultGO.name + ".prefab");
+		PrefabUtility.ReplacePrefab(resultGO, prefab, ReplacePrefabOptions.ConnectToPrefab);*/
 
 		// Disable the original and return both to original positions
 		combineParent.SetActive(false);
